@@ -14,14 +14,23 @@ class Counter extends Component
 {
 
     public $counter=0;
+    public $limitHight=10;
 
+    public $limitdown=0;
 
     public function increatement(){
-        $this->counter++;
+        if($this->counter<$this->limitHight)
+        {$this->counter++;}else{
+            session()->flash('limith','Counter has limithigth');
+        }
     }
 
     public function decrement(){
-        $this->counter--;
+        if($this->counter>$this->limitdown)
+        {$this->counter--;}else{
+            session()->flash('limitd','Counter has limitlow');
+        }
+
     }
     public function render()
     {
